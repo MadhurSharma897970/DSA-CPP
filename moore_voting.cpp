@@ -21,15 +21,28 @@ using namespace std;
 
 // }
 
+// int main(){
+//     vector<int>arr={2, 2, 1, 1, 1, 2, 2};
+//     int n=arr.size();
+//     unordered_map<int,int>freq;
+//     for(int x:arr){
+//         freq[x]++;
+//         if(freq[x]>n/2){
+//             cout<<"Majority element is: "<<x;
+//             return 0;
+//         }
+//     }
+// }
+
 int main(){
     vector<int>arr={2, 2, 1, 1, 1, 2, 2};
-    int n=arr.size();
-    unordered_map<int,int>freq;
+    int candidate;
+    int count=0;
     for(int x:arr){
-        freq[x]++;
-        if(freq[x]>n/2){
-            cout<<"Majority element is: "<<x;
-            return 0;
-        }
+        if(count==0) candidate=x;
+        if(x==candidate) count++;
+        else count--;
     }
+    cout<<"Maximum element is: "<<candidate;
+
 }
